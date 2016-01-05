@@ -2,7 +2,7 @@ const context = __dirname + '/example';
 
 module.exports = {
 	context: context,
-	entry: './index.jsx',
+	entry: './app.jsx',
 	output: {
 		path: context,
 		pathinfo: true,
@@ -16,7 +16,7 @@ module.exports = {
 				loader: 'babel',
 				exclude: /node_modules/,
 				query: {
-					cacheDirectory: true	
+					cacheDirectory: true
 				}
 			}
 		]
