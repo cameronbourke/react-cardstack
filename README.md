@@ -13,7 +13,7 @@ npm install --save react-cardstack
 
 ## Demo & Example
 
-Live demo: [cameronbourke.github.io/react-cardstack](cameronbourke.github.io/react-cardstack)
+Live demo: [cameronbourke.github.io/react-cardstack](http://cameronbourke.github.io/react-cardstack)
 
 To build the example locally, clone this repo then run:
 
