@@ -1,6 +1,6 @@
 {
   "name": "react-cardstack",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "react component inspired by the iOS passbook app UI",
   "main": "dist/index.js",
   "keywords": [
