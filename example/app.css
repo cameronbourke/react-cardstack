@@ -1,0 +1,23 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#root {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Open Sans';
+}
+
+.card-header-details .icon::before {
+	position: relative;
+  right: 7px;
+  top: 1px;
+}
