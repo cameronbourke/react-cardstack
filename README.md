@@ -60,7 +60,7 @@ When all `Card` components are collapsed, the top of each card will be visible. 
 ### CardStack
 
 Property  | Type | Default | Description
-------------- | -------------
+------------- | ------------- | ------ | --------
 width       | number | 350px  | the width of the component
 height      | number | 500px  | the height of the component
 background  | string | f8f8f8 | can be a hex, rgba, gradiant value or a url()
@@ -69,7 +69,7 @@ hoverOffset | number | 30px   | how far the card will shift up when being hovere
 ### Card
 
 Property  | Type | Default | Description
-------------- | -------------
+------------- | ------------- | ------- | -------
 background  | string | undefined | can be a hex, rgba, gradiant value or a url()
 cardClicked | func   | undefined | read below for description on how to use
 
