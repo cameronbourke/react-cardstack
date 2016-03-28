@@ -1,38 +1,10 @@
 import React from 'react';
-
-const styles = {
-	card: {
-		position: 'absolute',
-	  top: 0,
-		width: '100%',
-		cursor: 'pointer',
-		transition: '0.5s transform ease',
-	}
-};
-
-const throwError = (condition, message) => {
-	if(condition) {
-		throw new Error(message);
-	}
-};
+import { throwError } from './util';
+import Card from './card';
 
 const equalsZero = (num) => num === 0;
 
 class CardStack extends React.Component {
-	static propTypes = {
-		width: React.PropTypes.number,
-		height: React.PropTypes.number,
-		background: React.PropTypes.string,
-		hoverOffset: React.PropTypes.number
-	};
-
-	static defaultProps = {
-		width: 350,
-		height: 600,
-		bgColor: 'f8f8f8',
-		hoverOffset: 30
-	};
-
 	constructor(props) {
 		super(props);
 		const childrenLength = props.children.length || 1;
@@ -89,85 +61,41 @@ class CardStack extends React.Component {
 	}
 
 	render() {
-		const styles = {
+		const stackStyles = {
+			...styles,
 			background: this.props.background,
 			height: this.props.height,
 			width: this.props.width,
-			display: 'flex',
-			flexDirection: 'column',
-			position: 'relative',
-			overflow: 'hidden',
-			padding: 0,
-			margin: 0
 	  };
 		return (
-      <ul style={ styles }>
+      <ul style={stackStyles}>
 			  {this.renderCards()}
 		  </ul>
 	  );
 	}
 }
 
-class Card extends React.Component {
-	constructor(props) {
-	  super(props);
-		this.state = {
-			hover: false
-		};
-	}
+const styles = {
+	display: 'flex',
+	flexDirection: 'column',
+	position: 'relative',
+	overflow: 'hidden',
+	padding: 0,
+	margin: 0
+};
 
-	handleClick() {
-		this.props.handleClick(this.props.cardId, this.props.cardClicked);
-		this.setHoverState(false);
-	}
+CardStack.propTypes = {
+	width: React.PropTypes.number,
+	height: React.PropTypes.number,
+	background: React.PropTypes.string,
+	hoverOffset: React.PropTypes.number
+};
 
-	setHoverState(val) {
-		this.setState({
-			hover: val
-		});
-	}
+CardStack.defaultProps = {
+	width: 350,
+	height: 600,
+	bgColor: 'f8f8f8',
+	hoverOffset: 30
+};
 
-	render() {
-		const hoverOffset = this.props.cardId !== 0 && this.state.hover && !this.props.cardSelected ? this.props.hoverOffset: 0;
-		const dynamicStyles = {
-		  background: this.props.background,
-		  transform: `translate3d(0,${this.props.topOffset - hoverOffset}px,0)`,
-		  height: this.props.height
-	  };
-		return (
-			<li
-				style={Object.assign({}, styles.card, dynamicStyles)}
-				onClick={this.handleClick.bind(this)}
-				onMouseEnter={this.setHoverState.bind(this, true)}
-				onMouseLeave={this.setHoverState.bind(this, false)}>
-					{this.props.children}
-			</li>
-		);
-	}
-}
-
-
-// PURE FUNCTION
-// Same functionality as the class equivalent
-// but does not move up when hovered
-// -------------------------------------------
-//
-// const Card = (props) => {
-// 	const handleClick = () => {
-// 		props.handleClick(props.cardId, props.cardClicked);
-// 	}
-// 	const dynamicStyles = {
-// 		background: props.bgColor,
-// 		transform: `translate3d(0,${props.topOffset}px,0)`,
-// 		height: props.height
-// 	};
-// 	return (
-// 		<li
-// 			style={Object.assign({}, styles.card, dynamicStyles)}
-// 			onClick={handleClick}>
-// 				{props.children}
-// 		</li>
-// 	);
-// };
-
-export { CardStack, Card };
+export default CardStack;

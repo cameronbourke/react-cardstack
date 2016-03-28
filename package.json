@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --content-base example/",
-    "compile": "babel src/cardstack.jsx --out-file dist/index.js",
+    "compile": "babel src --out-dir dist",
+    "compile:watch": "babel src --watch --out-dir dist",
     "build": "webpack",
     "prepublish": "npm run compile",
     "test": "echo \"Error: no test specified\" && exit 1"

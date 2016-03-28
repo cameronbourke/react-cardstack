@@ -1,4 +1,4 @@
-import { CardStack, Card } from '../src/cardstack';
+import { CardStack, Card } from '../src/index';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -133,7 +133,7 @@ const DetailsRow = ({ icon, title, summary }) => {
 	return (
 		<div style={styles.row}>
 			<span className={`icon ${icon}`}
-			style={Object.assign({}, styles.icon, {alignSelf: 'flex-start'})}></span>
+			style={{ ...styles.icon, alignSelf: 'flex-start' }}></span>
 			<div style={{ width: '80%' }}>
 				<h2 style={styles.title}>
 					{title}
