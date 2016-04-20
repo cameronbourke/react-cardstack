@@ -7,6 +7,7 @@ const styles = {
 		width: '100%',
 		cursor: 'pointer',
 		transition: '0.5s transform ease',
+		WebkitTransition: '-webkit-transform 0.5s ease'
 	}
 };
 
