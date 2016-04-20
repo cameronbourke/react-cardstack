@@ -132,6 +132,7 @@ class Card extends React.Component {
 		const dynamicStyles = {
 		  background: this.props.background,
 		  transform: `translate3d(0,${this.props.topOffset - hoverOffset}px,0)`,
+          WebkitTransform: 'translate3d(0,' + (this.props.topOffset - hoverOffset) + 'px,0)',
 		  height: this.props.height
 	  };
 		return (
