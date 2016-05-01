@@ -1,6 +1,21 @@
 import React from 'react';
-import { throwError } from './util';
-import Card from './card';
+
+const styles = {
+	card: {
+		position: 'absolute',
+	  top: 0,
+		width: '100%',
+		cursor: 'pointer',
+		transition: '0.5s transform ease',
+		WebkitTransition: '-webkit-transform 0.5s ease'
+	}
+};
+
+const throwError = (condition, message) => {
+	if(condition) {
+		throw new Error(message);
+	}
+};
 
 const equalsZero = (num) => num === 0;
 
@@ -84,12 +99,34 @@ const styles = {
 	margin: 0
 };
 
+<<<<<<< HEAD
 CardStack.propTypes = {
 	width: React.PropTypes.number,
 	height: React.PropTypes.number,
 	background: React.PropTypes.string,
 	hoverOffset: React.PropTypes.number
 };
+=======
+	render() {
+		const hoverOffset = this.props.cardId !== 0 && this.state.hover && !this.props.cardSelected ? this.props.hoverOffset: 0;
+		const dynamicStyles = {
+		  background: this.props.background,
+		  transform: `translate3d(0,${this.props.topOffset - hoverOffset}px,0)`,
+          WebkitTransform: 'translate3d(0,' + (this.props.topOffset - hoverOffset) + 'px,0)',
+		  height: this.props.height
+	  };
+		return (
+			<li
+				style={Object.assign({}, styles.card, dynamicStyles)}
+				onClick={this.handleClick.bind(this)}
+				onMouseEnter={this.setHoverState.bind(this, true)}
+				onMouseLeave={this.setHoverState.bind(this, false)}>
+					{this.props.children}
+			</li>
+		);
+	}
+}
+>>>>>>> 603a4e3f7bcb24474b36b74c284fe82fd37d7a56
 
 CardStack.defaultProps = {
 	width: 350,
