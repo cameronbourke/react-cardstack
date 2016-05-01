@@ -83,12 +83,14 @@ cardClicked | func   | undefined | read below for description on how to use
 </Card>
 
 // example of the function being bound
-handleCardClick(cardSelected) {
-	console.log(cardSelected);
+handleCardClick(id, isCardSelected) {
+	console.log(id, isCardSelected);
 }
 ```
 
-When `this.handleCardClick` is invoked, it will receive the parameter `cardSelected` which will be a boolean describing whether there is currently a card selected or not.
+When `this.handleCardClick` is invoked, it will receive two parameters:
+1. `isCardSelected` - a boolean describing whether there is currently a card selected or not
+2. `id` - the zero-indexed card number.  e.g., top card is always id=0, third card is id=2, etc.
 
 ## Todo
 

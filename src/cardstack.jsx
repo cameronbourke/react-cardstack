@@ -71,7 +71,7 @@ class CardStack extends React.Component {
 		);
 
 		if(cb) {
-			cb(this.state.cardSelected);
+			cb(id, this.state.cardSelected);
 		};
 	}
 
