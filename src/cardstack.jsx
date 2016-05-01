@@ -7,6 +7,7 @@ const styles = {
 		width: '100%',
 		cursor: 'pointer',
 		transition: '0.5s transform ease',
+		WebkitTransition: '-webkit-transform 0.5s ease'
 	}
 };
 
@@ -132,6 +133,7 @@ class Card extends React.Component {
 		const dynamicStyles = {
 		  background: this.props.background,
 		  transform: `translate3d(0,${this.props.topOffset - hoverOffset}px,0)`,
+          WebkitTransform: 'translate3d(0,' + (this.props.topOffset - hoverOffset) + 'px,0)',
 		  height: this.props.height
 	  };
 		return (
