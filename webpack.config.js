@@ -3,8 +3,8 @@ const webpack = require('webpack');
 module.exports = {
 	entry: './src/index.jsx',
 	output: {
-		path: './umd/',
-		filename: 'react-cardstack.js',
+		path: './dist/',
+		filename: 'react-cardstack.min.js',
 		library: 'ReactCardstack',
 		libraryTarget: 'umd',
 		umdNamedDefine: true,

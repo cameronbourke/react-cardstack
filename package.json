@@ -23,8 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "dist",
-    "umd"
+    "dist"
   ],
   "author": "Cameron Bourke <cameron2295@gmail.com> (http://cameronbourke.com/)",
   "license": "MIT",
