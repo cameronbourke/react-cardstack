@@ -83,8 +83,8 @@ cardClicked | func   | undefined | read below for description on how to use
 </Card>
 
 // example of the function being bound
-handleCardClick(cardSelected) {
-	console.log(cardSelected);
+handleCardClick(isCardSelected) {
+	console.log(isCardSelected);
 }
 ```
 
