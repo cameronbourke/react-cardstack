@@ -1,27 +1,36 @@
-const context = __dirname + '/example';
+const webpack = require('webpack');
 
 module.exports = {
-	context: context,
-	entry: './app.jsx',
+	entry: './src/index.jsx',
 	output: {
-		path: context,
-		pathinfo: true,
-		filename: 'bundle.js'
+		path: './umd/',
+		filename: 'react-cardstack.js',
+		library: 'ReactCardstack',
+		libraryTarget: 'umd',
+		umdNamedDefine: true,
 	},
-	devtool: 'eval',
 	module: {
 		loaders: [
 			{
-				test: /\.jsx$/,
+				test: /\.jsx?$/,
 				loader: 'babel',
 				exclude: /node_modules/,
 				query: {
-					cacheDirectory: true
-				}
-			}
-		]
+					cacheDirectory: true,
+				},
+			},
+		],
 	},
+	plugins: [
+		new webpack.optimize.DedupePlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			minimize: true,
+			compress: {
+				warnings: false,
+			},
+		}),
+	],
 	resolve: {
-		extensions: ['', '.json', '.js', '.jsx']
-	}
+		extensions: ['', '.json', '.js', '.jsx'],
+	},
 };
