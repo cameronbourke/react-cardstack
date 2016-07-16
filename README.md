@@ -43,7 +43,7 @@ import { CardStack, Card } from 'react-cardstack';
 	</Card>
 
 	<Card background='#27AE60'>
-		<NumberTwo />
+		<h1>Number 2</h1>
 	</Card>
 
 </CardStack>
