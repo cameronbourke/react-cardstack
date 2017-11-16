@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const equalsZero = (num) => num === 0;
 const errorMessage = 'CardStack component must have at least two child Card components. Please check the children of this CardStack instance.';
@@ -81,10 +82,10 @@ const styles = {
 };
 
 CardStack.propTypes = {
-	background: React.PropTypes.string,
-	height: React.PropTypes.number,
-	hoverOffset: React.PropTypes.number,
-	width: React.PropTypes.number,
+	background: PropTypes.string,
+	height: PropTypes.number,
+	hoverOffset: PropTypes.number,
+	width: PropTypes.number,
 };
 
 CardStack.defaultProps = {
