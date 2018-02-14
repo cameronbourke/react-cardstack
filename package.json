@@ -37,6 +37,7 @@
     "eslint": "^2.9.0",
     "eslint-config-keystone": "^2.2.0",
     "eslint-plugin-react": "^5.0.1",
+    "prop-types": "^15.5.7", 
     "react-dom": "^15.0.2",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
