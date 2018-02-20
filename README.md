@@ -5,7 +5,7 @@ Built for React, this component allows you to achieve a UI similar to the iOS pa
 
 ## Installation
 
-react-cardstack requires **React 0.14 or later.**
+react-cardstack requires **React 15.3.0 or later.**
 
 ```
 npm install --save react-cardstack
