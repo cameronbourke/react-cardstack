@@ -44,15 +44,16 @@ class CardStack extends React.Component {
 	}
 
 	renderCards () {
-		const cloneCard = (child, i) => React.cloneElement(child, {
-			key: i,
-			cardId: i,
-			hoverOffset: this.props.hoverOffset,
-			cardSelected: this.state.cardSelected,
-			height: this.props.height,
-			topOffset: this.state.topOffsets[i],
-			onClick: this.handleCardClick.bind(this),
-		});
+		const cloneCard = (child, i) =>
+			React.cloneElement(child, {
+				key: i,
+				cardId: i,
+				hoverOffset: this.props.hoverOffset,
+				cardSelected: this.state.cardSelected,
+				height: this.props.height,
+				topOffset: this.state.topOffsets[i],
+				onClick: this.handleCardClick.bind(this),
+			});
 
 		return this.props.children.map(cloneCard);
 	}
