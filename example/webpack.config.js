@@ -1,25 +1,22 @@
+const path = require('path');
+
 module.exports = {
-	context: __dirname,
-	entry: './app.jsx',
+	entry: path.join(__dirname, 'App.js'),
 	output: {
-		path: './',
-		pathinfo: true,
+		path: __dirname,
 		filename: 'bundle.js',
 	},
-	devtool: 'eval',
+	devtool: 'source-map',
 	module: {
-		loaders: [
+		rules: [
 			{
-				test: /\.jsx?$/,
-				loader: 'babel',
+				test: /\.js$/,
 				exclude: /node_modules/,
-				query: {
-					cacheDirectory: true,
-				},
-			},
-		],
+				loader: 'babel-loader',
+			}
+		]
 	},
 	resolve: {
-		extensions: ['', '.json', '.js', '.jsx'],
+		extensions: ['.json', '.js', '.jsx'],
 	},
 };

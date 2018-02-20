@@ -3,9 +3,18 @@ import React from 'react';
 class Card extends React.Component {
 	constructor (props) {
 		super(props);
-		this.state = {
-			hover: false,
-		};
+		this.state = { hover: false };
+
+		this.handleMouseEnter = this.handleMouseEnter.bind(this);
+		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+	}
+
+	handleMouseEnter () {
+		this.setState({ hover: true });
+	}
+
+	handleMouseLeave () {
+		this.setState({ hover: false });
 	}
 
 	handleClick () {
@@ -15,9 +24,11 @@ class Card extends React.Component {
 	}
 
 	render () {
-		const {cardId, cardSelected, topOffset, hoverOffset} = this.props;
+		const { cardId, cardSelected, topOffset, hoverOffset } = this.props;
+
 		const offset = (cardId !== 0) && this.state.hover && !cardSelected ? hoverOffset : 0;
 		const transform = `translate3d(0,${topOffset - offset}px,0)`;
+
 		const cardStyles = {
 			...styles,
 			background: this.props.background,
@@ -25,12 +36,13 @@ class Card extends React.Component {
 			WebkitTransform: transform,
 			height: this.props.height,
 		};
+
 		return (
 			<li
 				style={cardStyles}
 				onClick={this.handleClick.bind(this)}
-				onMouseEnter={() => this.setState({ hover: true })}
-				onMouseLeave={() => this.setState({ hover: false })}>
+				onMouseEnter={this.handleMouseEnter}
+				onMouseLeave={this.handleMouseLeave}>
 					{this.props.children}
 			</li>
 		);

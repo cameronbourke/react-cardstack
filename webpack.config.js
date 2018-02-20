@@ -1,28 +1,28 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-	entry: './src/index.jsx',
+	entry: path.join(__dirname, 'src/index.js'),
 	output: {
-		path: './umd/',
-		filename: 'react-cardstack.js',
+		path: path.join(__dirname, 'dist'),
+		filename: 'react-cardstack.min.js',
 		library: 'ReactCardstack',
 		libraryTarget: 'umd',
 		umdNamedDefine: true,
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
-				test: /\.jsx?$/,
-				loader: 'babel',
+				test: /\.js$/,
 				exclude: /node_modules/,
-				query: {
-					cacheDirectory: true,
-				},
-			},
-		],
+				loader: 'babel-loader',
+			}
+		]
+	},
+	resolve: {
+		extensions: ['.json', '.js', '.jsx'],
 	},
 	plugins: [
-		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			minimize: true,
 			compress: {
@@ -30,7 +30,4 @@ module.exports = {
 			},
 		}),
 	],
-	resolve: {
-		extensions: ['', '.json', '.js', '.jsx'],
-	},
 };

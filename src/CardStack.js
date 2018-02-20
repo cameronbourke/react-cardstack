@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const equalsZero = (num) => num === 0;
 const errorMessage = 'CardStack component must have at least two child Card components. Please check the children of this CardStack instance.';
@@ -43,15 +44,16 @@ class CardStack extends React.Component {
 	}
 
 	renderCards () {
-		const cloneCard = (child, i) => React.cloneElement(child, {
-			key: i,
-			cardId: i,
-			hoverOffset: this.props.hoverOffset,
-			cardSelected: this.state.cardSelected,
-			height: this.props.height,
-			topOffset: this.state.topOffsets[i],
-			onClick: this.handleCardClick.bind(this),
-		});
+		const cloneCard = (child, i) =>
+			React.cloneElement(child, {
+				key: i,
+				cardId: i,
+				hoverOffset: this.props.hoverOffset,
+				cardSelected: this.state.cardSelected,
+				height: this.props.height,
+				topOffset: this.state.topOffsets[i],
+				onClick: this.handleCardClick.bind(this),
+			});
 
 		return this.props.children.map(cloneCard);
 	}
@@ -81,10 +83,10 @@ const styles = {
 };
 
 CardStack.propTypes = {
-	background: React.PropTypes.string,
-	height: React.PropTypes.number,
-	hoverOffset: React.PropTypes.number,
-	width: React.PropTypes.number,
+	background: PropTypes.string,
+	height: PropTypes.number,
+	hoverOffset: PropTypes.number,
+	width: PropTypes.number,
 };
 
 CardStack.defaultProps = {
