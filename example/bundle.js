@@ -11244,7 +11244,7 @@ module.exports = getHostComponentFromComposite;
 "use strict";
 
 
-var _src = __webpack_require__(91);
+var _dist = __webpack_require__(91);
 
 var _react = _interopRequireDefault(__webpack_require__(34));
 
@@ -11257,13 +11257,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 var App = function App(props) {
-  return _react.default.createElement("div", null, _react.default.createElement(_src.CardStack, {
+  return _react.default.createElement("div", null, _react.default.createElement(_dist.CardStack, {
     height: 500,
     width: 400,
     background: "#f8f8f8",
     hoverOffset: 25
   }, _people.default.map(function (person, i) {
-    return _react.default.createElement(_src.Card, {
+    return _react.default.createElement(_dist.Card, {
       key: i,
       background: person.background
     }, _react.default.createElement(TeamMemberCard, person));
@@ -11278,7 +11278,7 @@ var ProfilePicture = function ProfilePicture(_ref) {
       width: '60px',
       height: '60px',
       borderRadius: '100%',
-      border: "3px solid ".concat(borderColor)
+      border: "3px solid " + borderColor
     },
     src: imgSrc
   });
@@ -11302,7 +11302,7 @@ var DetailsRow = function DetailsRow(_ref2) {
   return _react.default.createElement("div", {
     style: styles.detailsRow.row
   }, _react.default.createElement("span", {
-    className: "icon ".concat(icon),
+    className: "icon " + icon,
     style: _extends({}, styles.detailsRow.icon, {
       alignSelf: 'flex-start'
     })
@@ -11407,27 +11407,21 @@ _reactDom.default.render(_react.default.createElement(App, null), document.getEl
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "CardStack", {
-  enumerable: true,
-  get: function get() {
-    return _Cardstack.default;
-  }
-});
-Object.defineProperty(exports, "Card", {
-  enumerable: true,
-  get: function get() {
-    return _Card.default;
-  }
-});
+exports.__esModule = true;
 
 var _Cardstack = _interopRequireDefault(__webpack_require__(92));
 
+exports.CardStack = _Cardstack.default;
+
 var _Card = _interopRequireDefault(__webpack_require__(102));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+exports.Card = _Card.default;
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
 
 /***/ }),
 /* 92 */
@@ -11436,32 +11430,42 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(34));
 
 var _propTypes = _interopRequireDefault(__webpack_require__(98));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+    return target;
+  };
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+  return _extends.apply(this, arguments);
+}
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
 
 var equalsZero = function equalsZero(num) {
   return num === 0;
@@ -11472,14 +11476,12 @@ var errorMessage = 'CardStack component must have at least two child Card compon
 var CardStack =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(CardStack, _React$Component);
+  _inheritsLoose(CardStack, _React$Component);
 
   function CardStack(props) {
     var _this;
 
-    _classCallCheck(this, CardStack);
-
-    _this = _possibleConstructorReturn(this, (CardStack.__proto__ || Object.getPrototypeOf(CardStack)).call(this, props));
+    _this = _React$Component.call(this, props) || this;
     var childrenLength = props.children.length || 1;
     var headerHeight = props.height / childrenLength;
     if (childrenLength <= 1) throw new Error(errorMessage);
@@ -11493,61 +11495,58 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(CardStack, [{
-    key: "handleCardClick",
-    value: function handleCardClick(id, cb) {
-      var _this2 = this;
+  var _proto = CardStack.prototype;
 
-      var initialState = {
-        topOffsets: [],
-        cardSelected: true
+  _proto.handleCardClick = function handleCardClick(id, cb) {
+    var _this2 = this;
+
+    var initialState = {
+      topOffsets: [],
+      cardSelected: true
+    };
+    var cardSelected = this.state.cardSelected;
+
+    var nextState = function nextState(prev, offset, index) {
+      var newOffset = index === id ? 0 : _this2.props.height;
+      return {
+        cardSelected: cardSelected ? false : true,
+        topOffsets: prev.topOffsets.concat([cardSelected ? _this2.initialTopOffsets[index] : newOffset])
       };
-      var cardSelected = this.state.cardSelected;
+    };
 
-      var nextState = function nextState(prev, offset, index) {
-        var newOffset = index === id ? 0 : _this2.props.height;
-        return {
-          cardSelected: cardSelected ? false : true,
-          topOffsets: _toConsumableArray(prev.topOffsets).concat([cardSelected ? _this2.initialTopOffsets[index] : newOffset])
-        };
-      };
+    this.setState(this.state.topOffsets.reduce(nextState, initialState));
+    if (cb) cb(this.state.cardSelected, id);
+  };
 
-      this.setState(this.state.topOffsets.reduce(nextState, initialState));
-      if (cb) cb(this.state.cardSelected, id);
-    }
-  }, {
-    key: "renderCards",
-    value: function renderCards() {
-      var _this3 = this;
+  _proto.renderCards = function renderCards() {
+    var _this3 = this;
 
-      var cloneCard = function cloneCard(child, i) {
-        return _react.default.cloneElement(child, {
-          key: i,
-          cardId: i,
-          hoverOffset: _this3.props.hoverOffset,
-          cardSelected: _this3.state.cardSelected,
-          height: _this3.props.height,
-          topOffset: _this3.state.topOffsets[i],
-          onClick: _this3.handleCardClick.bind(_this3)
-        });
-      };
-
-      return this.props.children.map(cloneCard);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var stackStyles = _extends({}, styles, {
-        background: this.props.background,
-        height: this.props.height,
-        width: this.props.width
+    var cloneCard = function cloneCard(child, i) {
+      return _react.default.cloneElement(child, {
+        key: i,
+        cardId: i,
+        hoverOffset: _this3.props.hoverOffset,
+        cardSelected: _this3.state.cardSelected,
+        height: _this3.props.height,
+        topOffset: _this3.state.topOffsets[i],
+        onClick: _this3.handleCardClick.bind(_this3)
       });
+    };
 
-      return _react.default.createElement("ul", {
-        style: stackStyles
-      }, this.renderCards());
-    }
-  }]);
+    return this.props.children.map(cloneCard);
+  };
+
+  _proto.render = function render() {
+    var stackStyles = _extends({}, styles, {
+      background: this.props.background,
+      height: this.props.height,
+      width: this.props.width
+    });
+
+    return _react.default.createElement("ul", {
+      style: stackStyles
+    }, this.renderCards());
+  };
 
   return CardStack;
 }(_react.default.Component);
@@ -12725,42 +12724,58 @@ module.exports = function() {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(34));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    return target;
+  };
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+  return _extends.apply(this, arguments);
+}
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+  return self;
+}
 
 var Card =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Card, _React$Component);
+  _inheritsLoose(Card, _React$Component);
 
   function Card(props) {
     var _this;
 
-    _classCallCheck(this, Card);
-
-    _this = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
+    _this = _React$Component.call(this, props) || this;
     _this.state = {
       hover: false
     };
@@ -12769,57 +12784,53 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(Card, [{
-    key: "handleMouseEnter",
-    value: function handleMouseEnter() {
-      this.setState({
-        hover: true
-      });
-    }
-  }, {
-    key: "handleMouseLeave",
-    value: function handleMouseLeave() {
-      this.setState({
-        hover: false
-      });
-    }
-  }, {
-    key: "handleClick",
-    value: function handleClick() {
-      var _props = this.props,
-          cardId = _props.cardId,
-          cardClicked = _props.cardClicked;
-      this.props.onClick(cardId, cardClicked);
-      this.setState({
-        hover: false
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _props2 = this.props,
-          cardId = _props2.cardId,
-          cardSelected = _props2.cardSelected,
-          topOffset = _props2.topOffset,
-          hoverOffset = _props2.hoverOffset;
-      var offset = cardId !== 0 && this.state.hover && !cardSelected ? hoverOffset : 0;
-      var transform = "translate3d(0,".concat(topOffset - offset, "px,0)");
+  var _proto = Card.prototype;
 
-      var cardStyles = _extends({}, styles, {
-        background: this.props.background,
-        transform: transform,
-        WebkitTransform: transform,
-        height: this.props.height
-      });
+  _proto.handleMouseEnter = function handleMouseEnter() {
+    this.setState({
+      hover: true
+    });
+  };
 
-      return _react.default.createElement("li", {
-        style: cardStyles,
-        onClick: this.handleClick.bind(this),
-        onMouseEnter: this.handleMouseEnter,
-        onMouseLeave: this.handleMouseLeave
-      }, this.props.children);
-    }
-  }]);
+  _proto.handleMouseLeave = function handleMouseLeave() {
+    this.setState({
+      hover: false
+    });
+  };
+
+  _proto.handleClick = function handleClick() {
+    var _props = this.props,
+        cardId = _props.cardId,
+        cardClicked = _props.cardClicked;
+    this.props.onClick(cardId, cardClicked);
+    this.setState({
+      hover: false
+    });
+  };
+
+  _proto.render = function render() {
+    var _props2 = this.props,
+        cardId = _props2.cardId,
+        cardSelected = _props2.cardSelected,
+        topOffset = _props2.topOffset,
+        hoverOffset = _props2.hoverOffset;
+    var offset = cardId !== 0 && this.state.hover && !cardSelected ? hoverOffset : 0;
+    var transform = "translate3d(0," + (topOffset - offset) + "px,0)";
+
+    var cardStyles = _extends({}, styles, {
+      background: this.props.background,
+      transform: transform,
+      WebkitTransform: transform,
+      height: this.props.height
+    });
+
+    return _react.default.createElement("li", {
+      style: cardStyles,
+      onClick: this.handleClick.bind(this),
+      onMouseEnter: this.handleMouseEnter,
+      onMouseLeave: this.handleMouseLeave
+    }, this.props.children);
+  };
 
   return Card;
 }(_react.default.Component);
@@ -22833,9 +22844,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 var people = [{
   background: '#2980B9',

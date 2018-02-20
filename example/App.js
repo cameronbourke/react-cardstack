@@ -1,4 +1,4 @@
-import { CardStack, Card } from '../src';
+import { CardStack, Card } from '../dist';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import people from './people';
