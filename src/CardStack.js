@@ -7,16 +7,24 @@ const errorMessage = 'CardStack component must have at least two child Card comp
 class CardStack extends React.Component {
 	constructor (props) {
 		super(props);
-		const childrenLength = props.children.length || 1;
-		const headerHeight = props.height / childrenLength;
+		const { children, height, defaultCard } = props;
+		const childrenLength = children.length || 1;
+		const headerHeight = height / childrenLength;
+		const hasDefaultCard = defaultCard >= 0;
 
 		if (childrenLength <= 1) throw new Error(errorMessage);
 
 		this.initialTopOffsets = props.children.map((child, i) => equalsZero(i) ? 0 : headerHeight * i);
 
+		let defaultCardTopOffsets;
+		if (hasDefaultCard) {
+			defaultCardTopOffsets = Array(childrenLength).fill(height);
+			defaultCardTopOffsets[defaultCard] = 0;
+		}
+
 		this.state = {
-			topOffsets: this.initialTopOffsets,
-			cardSelected: false,
+			topOffsets: hasDefaultCard ? defaultCardTopOffsets : this.initialTopOffsets,
+			cardSelected: hasDefaultCard,
 		};
 	}
 
@@ -87,6 +95,7 @@ CardStack.propTypes = {
 	height: PropTypes.number,
 	hoverOffset: PropTypes.number,
 	width: PropTypes.number,
+	defaultCard: PropTypes.number,
 };
 
 CardStack.defaultProps = {
@@ -94,6 +103,7 @@ CardStack.defaultProps = {
 	height: 600,
 	bgColor: 'f8f8f8',
 	hoverOffset: 30,
+	defaultCard: -1,
 };
 
 export default CardStack;
