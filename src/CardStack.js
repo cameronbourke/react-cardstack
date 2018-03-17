@@ -7,25 +7,26 @@ const errorMessage = 'CardStack component must have at least two child Card comp
 class CardStack extends React.Component {
 	constructor (props) {
 		super(props);
-		const { children, height, defaultCard } = props;
+		const { children, height, initialCard } = props;
 		const childrenLength = children.length || 1;
 		const headerHeight = height / childrenLength;
-		const hasDefaultCard = defaultCard >= 0;
 
 		if (childrenLength <= 1) throw new Error(errorMessage);
 
-		this.initialTopOffsets = props.children.map((child, i) => equalsZero(i) ? 0 : headerHeight * i);
-
-		let defaultCardTopOffsets;
-		if (hasDefaultCard) {
-			defaultCardTopOffsets = Array(childrenLength).fill(height);
-			defaultCardTopOffsets[defaultCard] = 0;
-		}
+		this.initialTopOffsets = props.children
+			.map((child, i) => equalsZero(i) ? 0 : headerHeight * i);
 
 		this.state = {
-			topOffsets: hasDefaultCard ? defaultCardTopOffsets : this.initialTopOffsets,
-			cardSelected: hasDefaultCard,
+			topOffsets: this.initialTopOffsets,
+			cardSelected: false,
 		};
+	}
+
+	componentWillMount () {
+		if (this.props.initialCard >= this.props.children.length)
+			console.warn('prop "initialCard" cannot be equal or greater than children.length');
+		else if (this.props.initialCard >= 0)
+			this.handleCardClick(this.props.initialCard);
 	}
 
 	handleCardClick (id, cb) {
@@ -38,7 +39,7 @@ class CardStack extends React.Component {
 		const nextState = (prev, offset, index) => {
 			const newOffset = (index === id) ? 0 : this.props.height;
 			return {
-				cardSelected: cardSelected ? false : true,
+				cardSelected: !cardSelected,
 				topOffsets: [
 					...prev.topOffsets,
 					cardSelected ? this.initialTopOffsets[index] : newOffset,
@@ -95,7 +96,7 @@ CardStack.propTypes = {
 	height: PropTypes.number,
 	hoverOffset: PropTypes.number,
 	width: PropTypes.number,
-	defaultCard: PropTypes.number,
+	initialCard: PropTypes.number,
 };
 
 CardStack.defaultProps = {
@@ -103,7 +104,7 @@ CardStack.defaultProps = {
 	height: 600,
 	bgColor: 'f8f8f8',
 	hoverOffset: 30,
-	defaultCard: -1,
+	initialCard: -1,
 };
 
 export default CardStack;

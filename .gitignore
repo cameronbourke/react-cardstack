@@ -2,4 +2,6 @@ node_modules/
 dist/
 umd/
 .DS_Store
+example/bundle.js
+example/bundle.js.map
 *.log
