@@ -11482,8 +11482,11 @@ function (_React$Component) {
     var _this;
 
     _this = _React$Component.call(this, props) || this;
-    var childrenLength = props.children.length || 1;
-    var headerHeight = props.height / childrenLength;
+    var children = props.children,
+        height = props.height,
+        initialCard = props.initialCard;
+    var childrenLength = children.length || 1;
+    var headerHeight = height / childrenLength;
     if (childrenLength <= 1) throw new Error(errorMessage);
     _this.initialTopOffsets = props.children.map(function (child, i) {
       return equalsZero(i) ? 0 : headerHeight * i;
@@ -11497,6 +11500,10 @@ function (_React$Component) {
 
   var _proto = CardStack.prototype;
 
+  _proto.componentWillMount = function componentWillMount() {
+    if (this.props.initialCard >= this.props.children.length) console.warn('prop "initialCard" cannot be equal or greater than children.length');else if (this.props.initialCard >= 0) this.handleCardClick(this.props.initialCard);
+  };
+
   _proto.handleCardClick = function handleCardClick(id, cb) {
     var _this2 = this;
 
@@ -11509,7 +11516,7 @@ function (_React$Component) {
     var nextState = function nextState(prev, offset, index) {
       var newOffset = index === id ? 0 : _this2.props.height;
       return {
-        cardSelected: cardSelected ? false : true,
+        cardSelected: !cardSelected,
         topOffsets: prev.topOffsets.concat([cardSelected ? _this2.initialTopOffsets[index] : newOffset])
       };
     };
@@ -11563,13 +11570,15 @@ CardStack.propTypes = {
   background: _propTypes.default.string,
   height: _propTypes.default.number,
   hoverOffset: _propTypes.default.number,
-  width: _propTypes.default.number
+  width: _propTypes.default.number,
+  initialCard: _propTypes.default.number
 };
 CardStack.defaultProps = {
   width: 350,
   height: 600,
   bgColor: 'f8f8f8',
-  hoverOffset: 30
+  hoverOffset: 30,
+  initialCard: -1
 };
 var _default = CardStack;
 exports.default = _default;
