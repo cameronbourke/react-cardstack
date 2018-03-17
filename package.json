@@ -19,7 +19,8 @@
     "start": "webpack-dev-server --content-base example/",
     "build:compile": "babel src --out-dir dist",
     "build:umd": "webpack",
-    "build:example": "webpack --config ./example/webpack.config.js --progress --colors"
+    "build:example": "webpack --config ./example/webpack.config.js --progress --colors",
+		"build:all": "yarn run build:compile && yarn run build:umd && yarn run build:example"
   },
   "files": [
     "dist"

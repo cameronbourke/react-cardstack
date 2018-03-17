@@ -65,6 +65,7 @@ width       | number | 350px  | the width of the component
 height      | number | 500px  | the height of the component
 background  | string | f8f8f8 | can be a hex, rgba, gradiant value or a url()
 hoverOffset | number | 30px   | how far the card will shift up when being hovered
+initialCard | number | -1     | if provided, the card at i'th index will be initially visible
 
 ### Card
 
@@ -96,4 +97,4 @@ When `this.handleCardClick` is invoked, it will receive the parameter `cardSelec
 
 ## License
 
-MIT Licensed Copyright (c) Cameron Bourke 2016
+MIT Licensed Copyright (c) Cameron Bourke 2018
