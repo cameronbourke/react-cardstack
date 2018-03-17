@@ -1,6 +1,6 @@
 {
   "name": "react-cardstack",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "react component inspired by the iOS passbook app UI",
   "main": "dist/index.js",
   "keywords": [
@@ -20,7 +20,7 @@
     "build:compile": "babel src --out-dir dist",
     "build:umd": "webpack",
     "build:example": "webpack --config ./example/webpack.config.js --progress --colors",
-		"build:all": "yarn run build:compile && yarn run build:umd && yarn run build:example"
+    "build:all": "yarn run build:compile && yarn run build:umd && yarn run build:example"
   },
   "files": [
     "dist"
