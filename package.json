@@ -40,7 +40,7 @@
     "react": "15.3.0",
     "react-dom": "15.3.0",
     "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^3.1.11"
   },
   "peerDependencies": {
     "react": ">=15.3.0"
